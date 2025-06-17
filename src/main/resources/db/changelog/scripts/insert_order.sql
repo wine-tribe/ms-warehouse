@@ -1,6 +1,6 @@
 INSERT INTO orders (external_id, is_deleted, name, not_process, status, price, warehouse_id, created_date, created_by, last_modified_date, last_modified_by)
 VALUES
-    ('O-1001', false, 'iPhone 15 Pro Max (512GB, Черный)', false, 'PENDING', 1250.50, 1,
+    ('O-1001', false, 'iPhone 15 Pro Max (512GB, Черный)', false, 'SOLD', 1250.50, 1,
      '2025-01-01 00:00:00', '{"fullName": "User One", "username": "user1"}'::jsonb,
      '2025-01-01 00:00:00', '{"fullName": "User One", "username": "user1"}'::jsonb),
 
@@ -12,7 +12,7 @@ VALUES
      '2025-01-01 00:00:00', '{"fullName": "User One", "username": "user1"}'::jsonb,
      '2025-01-01 00:00:00', '{"fullName": "User One", "username": "user1"}'::jsonb),
 
-    ('O-1004', false, 'Умные часы Samsung Galaxy Watch 6', false, 'DELIVERED', 540.75, 1,
+    ('O-1004', false, 'Умные часы Samsung Galaxy Watch 6', false, 'RESERVED', 540.75, 1,
      '2025-01-01 00:00:00', '{"fullName": "User Three", "username": "user3"}'::jsonb,
      '2025-01-01 00:00:00', '{"fullName": "User Three", "username": "user3"}'::jsonb),
 
