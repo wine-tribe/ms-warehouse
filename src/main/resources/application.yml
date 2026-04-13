@@ -63,3 +63,15 @@ logging:
 
 kafka:
   topic: cargo-topic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  endpoint:
+    prometheus:
+      enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
