@@ -1,5 +1,7 @@
 package backend.controller;
 
+import audit.api.annotation.Audit;
+import audit.api.annotation.AuditParam;
 import backend.security.model.AuthenticationRequest;
 import backend.security.model.AuthenticationResponse;
 import backend.security.model.RegisterRequest;
@@ -18,15 +20,16 @@ public class AuthController {
 
     private final AuthenticationService authenticationService;
 
+    @Audit("WAREHOUSE_AUTH_REGISTER")
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<String> register(@AuditParam("request") @RequestBody RegisterRequest request) {
         authenticationService.register(request);
         return ResponseEntity.ok("Регистрация прошла успешно. Теперь войдите в систему.");
     }
 
-
+    @Audit("WAREHOUSE_AUTH_AUTHENTICATE")
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+    public ResponseEntity<AuthenticationResponse> authenticate(@AuditParam("request") @RequestBody AuthenticationRequest request) {
         return ResponseEntity.ok(authenticationService.authenticate(request));
     }
 }

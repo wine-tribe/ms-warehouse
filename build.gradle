@@ -8,7 +8,12 @@ plugins {
 
 group = "ru.pet.ms.warehouse"
 version = "1.0-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_17
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
 
 repositories {
     mavenCentral()
@@ -84,5 +89,11 @@ application {
     mainClass = 'backend.WarehouseApplication'
 }
 
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
 
-
+dependencies {
+    implementation 'audit:audit-lib:1.0.0'
+}

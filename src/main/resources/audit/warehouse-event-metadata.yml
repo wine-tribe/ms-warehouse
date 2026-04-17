@@ -1,0 +1,345 @@
+metadata:
+  - event-code: "WAREHOUSE_AUTH_REGISTER"
+    event-type: "Создание"
+    business-object: "Пользователь"
+    business-operation: "Регистрация пользователя"
+    scm-category: "WAREHOUSE_AUTH"
+    audit-event-start:
+      title: "Инициирована регистрация пользователя"
+      message-template: "Инициирована регистрация пользователя"
+    audit-event-success:
+      title: "Пользователь успешно зарегистрирован"
+      message-template: "Пользователь успешно зарегистрирован"
+    audit-event-failure:
+      title: "Ошибка регистрации пользователя"
+      message-template: "Ошибка регистрации пользователя: {errorMessage}"
+
+  - event-code: "WAREHOUSE_AUTH_AUTHENTICATE"
+    event-type: "Авторизация"
+    business-object: "Пользователь"
+    business-operation: "Аутентификация пользователя"
+    scm-category: "WAREHOUSE_AUTH"
+    audit-event-start:
+      title: "Инициирована аутентификация пользователя"
+      message-template: "Инициирована аутентификация пользователя"
+    audit-event-success:
+      title: "Пользователь успешно аутентифицирован"
+      message-template: "Пользователь успешно аутентифицирован"
+    audit-event-failure:
+      title: "Ошибка аутентификации пользователя"
+      message-template: "Ошибка аутентификации пользователя: {errorMessage}"
+
+  - event-code: "WAREHOUSE_CUSTOMER_GET_ALL"
+    event-type: "Чтение"
+    business-object: "Клиенты"
+    business-operation: "Получение клиентов из соседнего сервиса"
+    scm-category: "WAREHOUSE_CUSTOMER"
+    audit-event-start:
+      title: "Инициировано получение клиентов"
+      message-template: "Инициирован запрос клиентов из соседнего сервиса"
+    audit-event-success:
+      title: "Клиенты успешно получены"
+      message-template: "Клиенты из соседнего сервиса успешно получены"
+    audit-event-failure:
+      title: "Ошибка получения клиентов"
+      message-template: "Ошибка получения клиентов: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_GET_BY_ID"
+    event-type: "Чтение"
+    business-object: "Заказ"
+    business-operation: "Получение заказа по идентификатору"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано получение заказа"
+      message-template: "Запрошен заказ orderId={orderId}"
+    audit-event-success:
+      title: "Заказ успешно получен"
+      message-template: "Заказ orderId={orderId} успешно получен"
+    audit-event-failure:
+      title: "Ошибка получения заказа"
+      message-template: "Ошибка получения заказа orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_GET_ALL"
+    event-type: "Чтение"
+    business-object: "Заказ"
+    business-operation: "Получение всех заказов"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано получение списка заказов"
+      message-template: "Инициирован запрос на получение всех заказов"
+    audit-event-success:
+      title: "Список заказов успешно получен"
+      message-template: "Список заказов успешно получен"
+    audit-event-failure:
+      title: "Ошибка получения списка заказов"
+      message-template: "Ошибка получения списка заказов: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_DELETE_BY_ID"
+    event-type: "Удаление"
+    business-object: "Заказ"
+    business-operation: "Удаление заказа"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано удаление заказа"
+      message-template: "Инициировано удаление заказа orderId={orderId}"
+    audit-event-success:
+      title: "Заказ успешно удалён"
+      message-template: "Заказ orderId={orderId} успешно удалён"
+    audit-event-failure:
+      title: "Ошибка удаления заказа"
+      message-template: "Ошибка удаления заказа orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_SET_IS_DELETED"
+    event-type: "Изменение"
+    business-object: "Заказ"
+    business-operation: "Изменение флага удаления"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано изменение флага удаления заказа"
+      message-template: "Инициировано изменение isDeleted={isDeleted} для orderId={orderId}"
+    audit-event-success:
+      title: "Флаг удаления заказа изменён"
+      message-template: "Флаг удаления заказа для orderId={orderId} успешно изменён"
+    audit-event-failure:
+      title: "Ошибка изменения флага удаления заказа"
+      message-template: "Ошибка изменения флага удаления заказа orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_CHANGE_STATUS"
+    event-type: "Изменение"
+    business-object: "Заказ"
+    business-operation: "Изменение статуса заказа"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано изменение статуса заказа"
+      message-template: "Инициировано изменение статуса заказа orderId={orderId}, status={status}"
+    audit-event-success:
+      title: "Статус заказа изменён"
+      message-template: "Статус заказа orderId={orderId} успешно изменён на {status}"
+    audit-event-failure:
+      title: "Ошибка изменения статуса заказа"
+      message-template: "Ошибка изменения статуса заказа orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_UPDATE_DETAILS"
+    event-type: "Изменение"
+    business-object: "Заказ"
+    business-operation: "Обновление параметров заказа"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано обновление параметров заказа"
+      message-template: "Инициировано обновление orderId={orderId}"
+    audit-event-success:
+      title: "Параметры заказа обновлены"
+      message-template: "Параметры заказа orderId={orderId} успешно обновлены"
+    audit-event-failure:
+      title: "Ошибка обновления параметров заказа"
+      message-template: "Ошибка обновления параметров заказа orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_SAVE"
+    event-type: "Создание"
+    business-object: "Заказ"
+    business-operation: "Создание заказа"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано создание заказа"
+      message-template: "Инициировано создание нового заказа"
+    audit-event-success:
+      title: "Заказ успешно создан"
+      message-template: "Заказ успешно создан"
+    audit-event-failure:
+      title: "Ошибка создания заказа"
+      message-template: "Ошибка создания заказа: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_GET_IDS_BY_WAREHOUSE"
+    event-type: "Чтение"
+    business-object: "Заказ"
+    business-operation: "Получение идентификаторов заказов по складу"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициировано получение orderIds по складу"
+      message-template: "Инициирован запрос orderIds по warehouseId={warehouseId}"
+    audit-event-success:
+      title: "Идентификаторы заказов успешно получены"
+      message-template: "Идентификаторы заказов для warehouseId={warehouseId} успешно получены"
+    audit-event-failure:
+      title: "Ошибка получения идентификаторов заказов"
+      message-template: "Ошибка получения orderIds по warehouseId={warehouseId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_TRANSFER"
+    event-type: "Изменение"
+    business-object: "Заказ"
+    business-operation: "Перенос заказа на другой склад"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициирован перенос заказа"
+      message-template: "Инициирован перенос orderId={orderId} на warehouseId={newWarehouseId}"
+    audit-event-success:
+      title: "Заказ успешно перенесён"
+      message-template: "Заказ orderId={orderId} успешно перенесён на warehouseId={newWarehouseId}"
+    audit-event-failure:
+      title: "Ошибка переноса заказа"
+      message-template: "Ошибка переноса orderId={orderId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_ORDER_TRANSFER_BULK"
+    event-type: "Изменение"
+    business-object: "Заказ"
+    business-operation: "Массовый перенос заказов"
+    scm-category: "WAREHOUSE_ORDER"
+    audit-event-start:
+      title: "Инициирован массовый перенос заказов"
+      message-template: "Инициирован массовый перенос заказов на warehouseId={newWarehouseId}"
+    audit-event-success:
+      title: "Массовый перенос заказов завершён"
+      message-template: "Массовый перенос заказов успешно завершён"
+    audit-event-failure:
+      title: "Ошибка массового переноса заказов"
+      message-template: "Ошибка массового переноса заказов: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GET_BY_ID"
+    event-type: "Чтение"
+    business-object: "Склад"
+    business-operation: "Получение склада по идентификатору"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано получение склада"
+      message-template: "Запрошен склад warehouseId={warehouseId}"
+    audit-event-success:
+      title: "Склад успешно получен"
+      message-template: "Склад warehouseId={warehouseId} успешно получен"
+    audit-event-failure:
+      title: "Ошибка получения склада"
+      message-template: "Ошибка получения склада warehouseId={warehouseId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GET_ALL"
+    event-type: "Чтение"
+    business-object: "Склад"
+    business-operation: "Получение списка складов"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано получение списка складов"
+      message-template: "Инициирован запрос на получение всех складов"
+    audit-event-success:
+      title: "Список складов успешно получен"
+      message-template: "Список складов успешно получен"
+    audit-event-failure:
+      title: "Ошибка получения списка складов"
+      message-template: "Ошибка получения списка складов: {errorMessage}"
+
+  - event-code: "WAREHOUSE_DELETE_BY_ID"
+    event-type: "Удаление"
+    business-object: "Склад"
+    business-operation: "Удаление склада"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано удаление склада"
+      message-template: "Инициировано удаление склада warehouseId={warehouseId}"
+    audit-event-success:
+      title: "Склад успешно удалён"
+      message-template: "Склад warehouseId={warehouseId} успешно удалён"
+    audit-event-failure:
+      title: "Ошибка удаления склада"
+      message-template: "Ошибка удаления склада warehouseId={warehouseId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_SET_IS_DELETED"
+    event-type: "Изменение"
+    business-object: "Склад"
+    business-operation: "Изменение флага удаления склада"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано изменение флага удаления склада"
+      message-template: "Инициировано изменение isDeleted={isDeleted} для warehouseId={warehouseId}"
+    audit-event-success:
+      title: "Флаг удаления склада изменён"
+      message-template: "Флаг удаления склада warehouseId={warehouseId} успешно изменён"
+    audit-event-failure:
+      title: "Ошибка изменения флага удаления склада"
+      message-template: "Ошибка изменения флага удаления склада warehouseId={warehouseId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_CHANGE_STATUS"
+    event-type: "Изменение"
+    business-object: "Склад"
+    business-operation: "Изменение статуса склада"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано изменение статуса склада"
+      message-template: "Инициировано изменение статуса склада warehouseId={warehouseId}, status={status}"
+    audit-event-success:
+      title: "Статус склада изменён"
+      message-template: "Статус склада warehouseId={warehouseId} успешно изменён на {status}"
+    audit-event-failure:
+      title: "Ошибка изменения статуса склада"
+      message-template: "Ошибка изменения статуса склада warehouseId={warehouseId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_SAVE"
+    event-type: "Создание"
+    business-object: "Склад"
+    business-operation: "Создание склада"
+    scm-category: "WAREHOUSE"
+    audit-event-start:
+      title: "Инициировано создание склада"
+      message-template: "Инициировано создание нового склада"
+    audit-event-success:
+      title: "Склад успешно создан"
+      message-template: "Склад успешно создан"
+    audit-event-failure:
+      title: "Ошибка создания склада"
+      message-template: "Ошибка создания склада: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GROUP_GET_BY_ID"
+    event-type: "Чтение"
+    business-object: "Группа складов"
+    business-operation: "Получение группы складов"
+    scm-category: "WAREHOUSE_GROUP"
+    audit-event-start:
+      title: "Инициировано получение группы складов"
+      message-template: "Запрошена группа складов warehouseGroupId={warehouseGroupId}"
+    audit-event-success:
+      title: "Группа складов успешно получена"
+      message-template: "Группа складов warehouseGroupId={warehouseGroupId} успешно получена"
+    audit-event-failure:
+      title: "Ошибка получения группы складов"
+      message-template: "Ошибка получения группы складов warehouseGroupId={warehouseGroupId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GROUP_GET_ALL"
+    event-type: "Чтение"
+    business-object: "Группа складов"
+    business-operation: "Получение списка групп складов"
+    scm-category: "WAREHOUSE_GROUP"
+    audit-event-start:
+      title: "Инициировано получение списка групп складов"
+      message-template: "Инициирован запрос на получение всех групп складов"
+    audit-event-success:
+      title: "Список групп складов успешно получен"
+      message-template: "Список групп складов успешно получен"
+    audit-event-failure:
+      title: "Ошибка получения списка групп складов"
+      message-template: "Ошибка получения списка групп складов: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GROUP_DELETE_BY_ID"
+    event-type: "Удаление"
+    business-object: "Группа складов"
+    business-operation: "Удаление группы складов"
+    scm-category: "WAREHOUSE_GROUP"
+    audit-event-start:
+      title: "Инициировано удаление группы складов"
+      message-template: "Инициировано удаление warehouseGroupId={warehouseGroupId}"
+    audit-event-success:
+      title: "Группа складов успешно удалена"
+      message-template: "Группа складов warehouseGroupId={warehouseGroupId} успешно удалена"
+    audit-event-failure:
+      title: "Ошибка удаления группы складов"
+      message-template: "Ошибка удаления группы складов warehouseGroupId={warehouseGroupId}: {errorMessage}"
+
+  - event-code: "WAREHOUSE_GROUP_SET_IS_DELETED"
+    event-type: "Изменение"
+    business-object: "Группа складов"
+    business-operation: "Изменение флага удаления группы складов"
+    scm-category: "WAREHOUSE_GROUP"
+    audit-event-start:
+      title: "Инициировано изменение флага удаления группы складов"
+      message-template: "Инициировано изменение isDeleted={isDeleted} для warehouseGroupId={warehouseGroupId}"
+    audit-event-success:
+      title: "Флаг удаления группы складов изменён"
+      message-template: "Флаг удаления группы складов warehouseGroupId={warehouseGroupId} успешно изменён"
+    audit-event-failure:
+      title: "Ошибка изменения флага удаления группы складов"
+      message-template: "Ошибка изменения флага удаления группы складов warehouseGroupId={warehouseGroupId}: {errorMessage}"

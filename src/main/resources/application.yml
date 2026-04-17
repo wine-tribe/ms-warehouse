@@ -75,3 +75,9 @@ management:
   metrics:
     tags:
       application: ${spring.application.name}
+
+audit:
+  enabled: true
+  metadata-location: classpath:audit/warehouse-event-metadata.yml
+  topic: audit-events
+  bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:host.docker.internal:29092}

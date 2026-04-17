@@ -1,5 +1,6 @@
 package backend.controller;
 
+import audit.api.annotation.Audit;
 import backend.dto.CustomerDto;
 import backend.dto.OrderDto;
 import backend.service.CustomerService;
@@ -21,6 +22,7 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
+    @Audit("WAREHOUSE_CUSTOMER_GET_ALL")
     @GetMapping("/all")
     @Operation(summary = "Получить всех клиентов с соседнего сервиса")
     public List<CustomerDto> getAll() {
